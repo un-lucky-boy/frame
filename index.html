@@ -4,21 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My browser</title>
+    <title>Webpage Viewer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        #urlInput {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        #webpageFrame {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            height: calc(100% - 50px);
+            border: none;
+        }
+    </style>
 </head>
 <body>
-    <input type="text" id="userInput" onkeydown="if(event.keyCode==13) showText()">
-    <h2 id="displayText"></h2>
-    <iframe src="displayText" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;">
-    Your browser doesn't support iframes
-</iframe>
-
+    <input type="text" id="urlInput" placeholder="Enter URL and press Enter">
+    <iframe id="webpageFrame"></iframe>
     <script>
-        function showText() {
-            let inputText = document.getElementById("userInput").value;
-            document.getElementById("displayText").innerText = inputText;
-            document.getElementById("userInput").value = "";
-        }
+        const urlInput = document.getElementById('urlInput');
+        const webpageFrame = document.getElementById('webpageFrame');
+        
+        urlInput.addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                webpageFrame.src = urlInput.value;
+            }
+        });
     </script>
 </body>
 </html>
