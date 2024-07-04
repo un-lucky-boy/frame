@@ -9,6 +9,9 @@
 <body>
     <input type="text" id="userInput" onkeydown="if(event.keyCode==13) showText()">
     <h2 id="displayText"></h2>
+    <iframe src="displayText" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;">
+    Your browser doesn't support iframes
+</iframe>
 
     <script>
         function showText() {
