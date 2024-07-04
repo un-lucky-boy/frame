@@ -1,5 +1,21 @@
-<html>
-  <body>
-    <iframe src=>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My browser</title>
+</head>
+<body>
+    <input type="text" id="userInput" onkeydown="if(event.keyCode==13) showText()">
+    <h2 id="displayText"></h2>
+
+    <script>
+        function showText() {
+            let inputText = document.getElementById("userInput").value;
+            document.getElementById("displayText").innerText = inputText;
+            document.getElementById("userInput").value = "";
+        }
+    </script>
+</body>
 </html>
